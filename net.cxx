@@ -64,5 +64,6 @@ torch::Tensor Net::forward(torch::Tensor x)
     x = torch::relu(fc2->forward(x));
     x = torch::relu(fc3->forward(x));
     x = fc4->forward(x);
+        
     return torch::log_softmax(x, 1);    
 }

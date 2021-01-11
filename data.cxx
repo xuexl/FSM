@@ -10,7 +10,7 @@
 /* Convert and Load image to tensor from location argument */
 torch::Tensor read_data(std::string loc)
 {
-    cv::Mat img = cv::imread(loc, 1);
+    cv::Mat img = cv::imread(loc, 0);
     cv::resize(img, img, cv::Size(200, 200), cv::INTER_CUBIC);
 //    std::cout << "Sizes: " << img.size() << std::endl;
     torch::Tensor img_tensor = torch::from_blob(img.data, {img.rows, img.cols, 1}, torch::kByte);
